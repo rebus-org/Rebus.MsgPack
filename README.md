@@ -1,4 +1,4 @@
-# Rebus.TODO
+# Rebus.MsgPack
 
 Provides a MessagePack message serializer for [Rebus](https://github.com/rebus-org/Rebus).
 
