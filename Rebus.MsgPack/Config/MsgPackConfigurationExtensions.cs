@@ -1,7 +1,8 @@
-﻿using Rebus.Config;
+﻿using System;
+using Rebus.MsgPack;
 using Rebus.Serialization;
 
-namespace Rebus.MsgPack
+namespace Rebus.Config
 {
     /// <summary>
     /// Configuration extensions for the Jil serializer
@@ -13,6 +14,7 @@ namespace Rebus.MsgPack
         /// </summary>
         public static void UseMsgPack(this StandardConfigurer<ISerializer> configurer)
         {
+            if (configurer == null) throw new ArgumentNullException(nameof(configurer));
             configurer.Register(c => new MsgPackSerializer());
         }
     }

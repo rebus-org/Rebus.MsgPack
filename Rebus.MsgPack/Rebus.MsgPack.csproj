@@ -7,7 +7,7 @@
     <ProjectGuid>{B7FFF4B4-EFE2-44F9-B7AB-19B206FB6B90}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Rebus.MsgPack</RootNamespace>
+    <RootNamespace>Rebus</RootNamespace>
     <AssemblyName>Rebus.MsgPack</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -36,9 +36,8 @@
       <HintPath>..\packages\MsgPack.0.1.0.2011042300\lib\net40\MsgPack.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Rebus, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Rebus.2.0.1\lib\NET45\Rebus.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Rebus, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rebus.3.0.0\lib\NET45\Rebus.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -50,8 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MsgPackConfigurationExtensions.cs" />
-    <Compile Include="MsgPackSerializer.cs" />
+    <Compile Include="Config\MsgPackConfigurationExtensions.cs" />
+    <Compile Include="MsgPack\MsgPackSerializer.cs" />
     <Compile Include="Properties\AssemblyInfo_Patch.cs" />
     <None Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
