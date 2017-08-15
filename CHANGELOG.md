@@ -16,8 +16,7 @@
 
 * Update to Rebus 3
 
-## 4.0.0-b03
+## 4.0.0
 
 * Update to Rebus 4
 * Update project structure
-* Update deps to b10
