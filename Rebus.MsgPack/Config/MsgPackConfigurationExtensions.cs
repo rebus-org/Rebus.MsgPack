@@ -1,6 +1,7 @@
 ﻿using System;
 using Rebus.MsgPack;
 using Rebus.Serialization;
+// ReSharper disable UnusedMember.Global
 
 namespace Rebus.Config
 {

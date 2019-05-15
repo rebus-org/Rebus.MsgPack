@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Threading.Tasks;
@@ -15,6 +16,8 @@ namespace Rebus.MsgPack
     /// </summary>
     public class MsgPackSerializer : ISerializer
     {
+        static readonly ConcurrentDictionary<string, Type> TypeCache = new ConcurrentDictionary<string, Type>();
+        
         const string MsgPackContentType = "application/x-msgpack";
 
         /// <summary>
@@ -59,24 +62,24 @@ namespace Rebus.MsgPack
 
         static Type GetMessageType(IDictionary<string, string> headers)
         {
-            string messageTypeString;
-            if (!headers.TryGetValue(Headers.Type, out messageTypeString))
+            if (!headers.TryGetValue(Headers.Type, out var messageTypeString))
             {
                 throw new SerializationException($"Could not find the '{Headers.Type}' header on the incoming message");
             }
 
-            var type = Type.GetType(messageTypeString, false);
-
-            if (type == null)
-            {
-                var message = $"Could not find .NET type matching '{messageTypeString}' - please be sure that the correct message" +
-                    " assembly is available when handling messages";
-
-                throw new SerializationException(message);
-            }
-
-            return type;
+            return TypeCache.GetOrAdd(messageTypeString, ResolveMessageType);
         }
 
+        static Type ResolveMessageType(string messageTypeString)
+        {
+            var type = Type.GetType(messageTypeString, false);
+
+            if (type != null) return type;
+
+            var message = $"Could not find .NET type matching '{messageTypeString}' - please be sure that the correct message" +
+                          " assembly is available when handling messages";
+
+            throw new SerializationException(message);
+        }
     }
 }

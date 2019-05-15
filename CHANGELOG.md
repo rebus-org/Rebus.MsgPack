@@ -20,3 +20,10 @@
 
 * Update to Rebus 4
 * Update project structure
+
+## 5.0.0
+
+* Update to latest Rebus and target .NET Standard 2.0 - thanks [ahmettahasakar]
+
+
+[ahmettahasakar]: https://github.com/ahmettahasakar
