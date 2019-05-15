@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Threading.Tasks;
-using MsgPack;
+using MessagePack;
 using Rebus.Extensions;
 using Rebus.Messages;
 using Rebus.Serialization;
@@ -16,7 +16,6 @@ namespace Rebus.MsgPack
     public class MsgPackSerializer : ISerializer
     {
         const string MsgPackContentType = "application/x-msgpack";
-        readonly ObjectPacker _packer = new ObjectPacker();
 
         /// <summary>
         /// Serializes the given logical message to a transport message using MsgPack. Adds the
@@ -31,7 +30,7 @@ namespace Rebus.MsgPack
             headers[Headers.ContentType] = MsgPackContentType;
             headers[Headers.Type] = body.GetType().GetSimpleAssemblyQualifiedName();
 
-            var bytes = _packer.Pack(body);
+            var bytes = LZ4MessagePackSerializer.Serialize(body, MessagePack.Resolvers.ContractlessStandardResolverAllowPrivate.Instance);
 
             return new TransportMessage(headers, bytes);
         }
@@ -53,7 +52,7 @@ namespace Rebus.MsgPack
             }
 
             var messageType = GetMessageType(headers);
-            var body = _packer.Unpack(messageType, transportMessage.Body);
+            var body = LZ4MessagePackSerializer.NonGeneric.Deserialize(messageType, transportMessage.Body, MessagePack.Resolvers.ContractlessStandardResolverAllowPrivate.Instance);
 
             return new Message(headers.Clone(), body);
         }
