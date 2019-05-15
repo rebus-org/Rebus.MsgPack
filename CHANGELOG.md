@@ -21,7 +21,7 @@
 * Update to Rebus 4
 * Update project structure
 
-## 5.0.0
+## 5.0.0-b1
 
 * Update to latest Rebus and target .NET Standard 2.0 - thanks [ahmettahasakar]
 
