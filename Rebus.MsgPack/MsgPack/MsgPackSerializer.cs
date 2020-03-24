@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Threading.Tasks;
 using MessagePack;
+using MessagePack.Resolvers;
 using Rebus.Extensions;
 using Rebus.Messages;
 using Rebus.Serialization;
@@ -16,8 +17,10 @@ namespace Rebus.MsgPack
     /// </summary>
     public class MsgPackSerializer : ISerializer
     {
+        static readonly MessagePackSerializerOptions MessagePackSerializerOptions = ContractlessStandardResolver.Options;
+
         static readonly ConcurrentDictionary<string, Type> TypeCache = new ConcurrentDictionary<string, Type>();
-        
+
         const string MsgPackContentType = "application/x-msgpack";
 
         /// <summary>
@@ -33,7 +36,7 @@ namespace Rebus.MsgPack
             headers[Headers.ContentType] = MsgPackContentType;
             headers[Headers.Type] = body.GetType().GetSimpleAssemblyQualifiedName();
 
-            var bytes = LZ4MessagePackSerializer.Serialize(body, MessagePack.Resolvers.ContractlessStandardResolverAllowPrivate.Instance);
+            var bytes = MessagePackSerializer.Serialize(body, MessagePackSerializerOptions);
 
             return new TransportMessage(headers, bytes);
         }
@@ -55,7 +58,7 @@ namespace Rebus.MsgPack
             }
 
             var messageType = GetMessageType(headers);
-            var body = LZ4MessagePackSerializer.NonGeneric.Deserialize(messageType, transportMessage.Body, MessagePack.Resolvers.ContractlessStandardResolverAllowPrivate.Instance);
+            var body = MessagePackSerializer.Deserialize(messageType, transportMessage.Body, MessagePackSerializerOptions);
 
             return new Message(headers.Clone(), body);
         }

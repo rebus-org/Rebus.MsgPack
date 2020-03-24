@@ -20,5 +20,9 @@
 * Update to latest Rebus and target .NET Standard 2.0 - thanks [ahmettahasakar]
 * Update MessagePack dep to 1.9.11
 
+## 6.0.0
+* Update to Rebus 6
+* Update to MessagePack 2.1.90
+
 
 [ahmettahasakar]: https://github.com/ahmettahasakar
