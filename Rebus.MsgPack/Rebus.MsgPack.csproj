@@ -8,6 +8,6 @@
 
   <ItemGroup>
     <PackageReference Include="Rebus" Version="5.3.1" />
-    <PackageReference Include="MessagePack" Version="1.7.3.7" />
+    <PackageReference Include="MessagePack" Version="1.9.11" />
   </ItemGroup>
 </Project>
