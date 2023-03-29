@@ -1,13 +1,28 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <RootNamespace>Rebus</RootNamespace>
-    <PackageDescription>Provides a MsgPack message serializer for Rebus</PackageDescription>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<RootNamespace>Rebus</RootNamespace>
+		<LangVersion>11</LangVersion>
+		<PackageDescription>Provides a MsgPack message serializer for Rebus</PackageDescription>
+		<PackageIcon>little_rebusbus2_copy-500x500.png</PackageIcon>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Rebus" Version="6.1.0" />
-    <PackageReference Include="MessagePack" Version="2.1.90" />
-  </ItemGroup>
+	<ItemGroup>
+	  <None Include="..\artwork\little_rebusbus2_copy-500x500.png">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	  <None Include="..\README.md">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Rebus" Version="8.0.0-alpha01" />
+		<PackageReference Include="MessagePack" Version="2.5.108" />
+	</ItemGroup>
 </Project>

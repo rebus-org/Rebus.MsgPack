@@ -1,18 +1,19 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "stuff", "stuff", "{1ABDD7C1-1F8D-402D-8692-3E4B66962DE0}"
 	ProjectSection(SolutionItems) = preProject
+		appveyor.yml = appveyor.yml
 		CHANGELOG.md = CHANGELOG.md
 		CONTRIBUTING.md = CONTRIBUTING.md
 		LICENSE.md = LICENSE.md
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rebus.MsgPack", "Rebus.MsgPack\Rebus.MsgPack.csproj", "{D05F37E8-8673-4619-B5AA-A590CDC08075}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rebus.MsgPack", "Rebus.MsgPack\Rebus.MsgPack.csproj", "{D05F37E8-8673-4619-B5AA-A590CDC08075}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rebus.MsgPack.Tests", "Rebus.MsgPack.Tests\Rebus.MsgPack.Tests.csproj", "{6D888CA4-D082-4F1F-BEC9-3E0227AA481B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rebus.MsgPack.Tests", "Rebus.MsgPack.Tests\Rebus.MsgPack.Tests.csproj", "{6D888CA4-D082-4F1F-BEC9-3E0227AA481B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

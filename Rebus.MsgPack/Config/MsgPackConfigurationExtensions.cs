@@ -3,20 +3,19 @@ using Rebus.MsgPack;
 using Rebus.Serialization;
 // ReSharper disable UnusedMember.Global
 
-namespace Rebus.Config
+namespace Rebus.Config;
+
+/// <summary>
+/// Configuration extensions for the Jil serializer
+/// </summary>
+public static class MsgPackConfigurationExtensions
 {
     /// <summary>
-    /// Configuration extensions for the Jil serializer
+    /// Configures Rebus to use the simple and really fast MsgPack serializer
     /// </summary>
-    public static class MsgPackConfigurationExtensions
+    public static void UseMsgPack(this StandardConfigurer<ISerializer> configurer)
     {
-        /// <summary>
-        /// Configures Rebus to use the simple and really fast MsgPack serializer
-        /// </summary>
-        public static void UseMsgPack(this StandardConfigurer<ISerializer> configurer)
-        {
-            if (configurer == null) throw new ArgumentNullException(nameof(configurer));
-            configurer.Register(c => new MsgPackSerializer());
-        }
+        if (configurer == null) throw new ArgumentNullException(nameof(configurer));
+        configurer.Register(c => new MsgPackSerializer());
     }
 }

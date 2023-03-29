@@ -24,5 +24,7 @@
 * Update to Rebus 6
 * Update to MessagePack 2.1.90
 
+## 7.0.0-alpha01
+* Update to Rebus 8
 
 [ahmettahasakar]: https://github.com/ahmettahasakar

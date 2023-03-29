@@ -1,13 +1,12 @@
 ﻿using Rebus.Serialization;
 using Rebus.Tests.Contracts.Serialization;
 
-namespace Rebus.MsgPack.Tests
+namespace Rebus.MsgPack.Tests;
+
+public class MsgPackSerializerFactory : ISerializerFactory
 {
-    public class MsgPackSerializerFactory : ISerializerFactory
+    public ISerializer GetSerializer()
     {
-        public ISerializer GetSerializer()
-        {
-            return new MsgPackSerializer();
-        }
+        return new MsgPackSerializer();
     }
 }
