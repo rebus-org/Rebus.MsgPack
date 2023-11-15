@@ -19,7 +19,7 @@ public class MsgPackSerializer : ISerializer
 {
     static readonly MessagePackSerializerOptions MessagePackSerializerOptions = ContractlessStandardResolver.Options;
 
-    static readonly ConcurrentDictionary<string, Type> TypeCache = new ConcurrentDictionary<string, Type>();
+    static readonly ConcurrentDictionary<string, Type> TypeCache = new();
 
     const string MsgPackContentType = "application/x-msgpack";
 
