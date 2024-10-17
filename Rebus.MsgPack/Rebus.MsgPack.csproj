@@ -23,6 +23,6 @@
 
 	<ItemGroup>
 		<PackageReference Include="Rebus" Version="8.0.1" />
-		<PackageReference Include="MessagePack" Version="2.5.129" />
+		<PackageReference Include="MessagePack" Version="2.5.187" />
 	</ItemGroup>
 </Project>
