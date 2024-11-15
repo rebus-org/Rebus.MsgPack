@@ -27,4 +27,7 @@
 ## 7.0.0
 * Update to Rebus 8
 
+## 7.1.0
+* Update MessagePack dependency to v 2.5.192
+
 [ahmettahasakar]: https://github.com/ahmettahasakar
